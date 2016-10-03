@@ -1,5 +1,5 @@
 package main
-s/*
+/*
 
 Go Language Examples. These files are intended to be read in the order of their
 filenames.
