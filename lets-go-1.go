@@ -39,7 +39,17 @@ import "fmt"
 // create our main function that will be run when the script is launched
 func main() {
     // Simple Hello, World example
-    fmt.Println("Hello, Word")
+    fmt.Println("Hello, World")
+
+    /*
+    Println includes a linebreak at the end of whatever it displays. To display
+    text and not move to a new line simply use Print instead of Println. To
+    include a new linebreak inside of a print statement use \n. The following
+    is equivalent to the hello world example above.
+    */
+
+    fmt.Print("Hel")
+    fmt.Print("lo, World\n")
 
     /*
                        _
