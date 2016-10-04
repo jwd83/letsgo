@@ -58,11 +58,12 @@ func main() {
     Another way to write the above....
     */
 
-    for y := 1; y <= 10; y++ {  // this includes the declaration (y : = 1)
-                                // test y <= 10 and incrementer y++ all in
-                                // one line. When declared in this manner y only
-                                // has scope inside the loop and is inaccessible
-                                // once it completes.
+    for y := 1; y <= 10; y++ {  // this includes the declaration (y : = 1),
+                                // test y <= 10 and incrementer y++ that runs
+                                // each time the loop completes all in one line.
+                                // Also of note When declared in this manner y
+                                // only has scope inside the loop and is
+                                // inaccessible once it completes.
         fmt.Println("y is now: ", y)
     }
 
