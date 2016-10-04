@@ -166,7 +166,11 @@ func main() {
 
     Another way to  create  slices  is  to  use the [low : high] expression. low
     is the starting address offset in the slice and high is the address where to
-    end it (without including itself.) For instance....
+    end it (without including itself.) Another way to think of this is...
+
+    [include starting at: exclude starting at]
+
+    In any event, here are some examples...
 
     */
     simple_array := [5]float64{1,2,3,4,5}
@@ -177,6 +181,24 @@ func main() {
     slice_three = simple_array[2:3]
     fmt.Println("When slice_three = simple_array[0:5] slice_three is", slice_three)
     // When slice_three = simple_array[0:5] slice_three is [3]
+
+    /*
+    By omitting either side we can tell the compiler to do certain things. For
+    instance  [4:] would tell the compiler to start start at offset 4 and
+    continue until the end. Similarly [:4] would say start at the beginning and
+    go until offset 4 (excluding offset 4). Omitting both sides simply includes
+    the entire slice.
+    */
+
+    slice_three = simple_array[2:]
+    fmt.Println("When slice_three = simple_array[2:] slice_three is", slice_three)
+
+    slice_three = simple_array[:2]
+    fmt.Println("When slice_three = simple_array[:2] slice_three is", slice_three)
+
+    slice_three = simple_array[:]
+    fmt.Println("When slice_three = simple_array[:] slice_three is", slice_three)
+
 
     /*
      _ _                     _ _               _ _
