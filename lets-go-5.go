@@ -88,7 +88,7 @@ func main() {
 
     // Next lets append items one at a time and display the address of the
     // first element in the slice.
-    for i := 0; i < 150; i++ {
+    for i := 0; i < 15; i++ {
         slice_two = append(slice_two, float64(i))
         /*
         Using %p with Printf allows us to print the address. Note it's important
@@ -153,5 +153,55 @@ func main() {
     First element @ 0xc4200b0000, Slice = [0 1 2 ... 76 77 78 79 80] CHANGED...
 
     */
+
+    /*
+     _                     _     _       _
+    | |                _  | |   (_)     | |
+    | | _____      __ (_) | |__  _  __ _| |__
+    | |/ _ \ \ /\ / /     | '_ \| |/ _` | '_ \
+    | | (_) \ V  V /   _  | | | | | (_| | | | |
+    |_|\___/ \_/\_/   (_) |_| |_|_|\__, |_| |_|
+                                    __/ |
+                                   |___/
+
+    Another way to  create  slices  is  to  use the [low : high] expression. low
+    is the starting address offset in the slice and high is the address where to
+    end it (without including itself.) For instance....
+
+    */
+    simple_array := [5]float64{1,2,3,4,5}
+    slice_three := simple_array[0:5]
+    fmt.Println("When slice_three = simple_array[0:5] slice_three is", slice_three)
+    // When slice_three = simple_array[0:5] slice_three is [1 2 3 4 5]
+
+    slice_three = simple_array[2:3]
+    fmt.Println("When slice_three = simple_array[0:5] slice_three is", slice_three)
+    // When slice_three = simple_array[0:5] slice_three is [3]
+
+    /*
+     _ _                     _ _               _ _
+    ( | )                   ( | )             | (_)
+     V V ___ ___  _ __  _   _V V    __ _   ___| |_  ___ ___
+        / __/ _ \| '_ \| | | |     / _` | / __| | |/ __/ _ \
+       | (_| (_) | |_) | |_| |    | (_| | \__ \ | | (_|  __/
+        \___\___/| .__/ \__, |     \__,_| |___/_|_|\___\___|
+                 | |     __/ |
+                 |_|    |___/
+
+    The copy keyword takes two arguments - destination "dst" and source "src".
+    If the two slices are different sizes only the copy will only proceed until
+    it has reached the end of either slice.
+
+    */
+
+    slice_four := []int {1,2,3,4,5}
+    slice_five := make([]int, 3)
+
+    copy(slice_five, slice_four)    //copy what is in four into five
+    fmt.Println(slice_five)         // [1 2 3]
+
+    copy(slice_four, slice_five)    //copy what is in five into four
+    fmt.Println(slice_five)         // [1 2 3] - Note slice_four was resized.
+                                    // It's later elements have been lost
 
 }
